@@ -1,0 +1,374 @@
+openapi: 3.0.0
+info:
+  title: API de Apólices
+  version: 1.0.0
+paths:
+  /apolices:
+    post:
+      summary: Criar uma nova apólice
+      operationId: criarApolice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dadosDaApolice:
+                  type: object
+                  required:
+                    - codigoSusep
+                    - nomeSeguradora
+                    - numeroApolice
+                    - codigoSegmento
+                    - codigoCobertura
+                    - codigoOperacao
+                    - statusApolice
+                    - dataEmissao
+                    - dataInicioVigencia
+                    - dataFimVigencia
+                    - nomeSegurado
+                    - documentoSegurado
+                    - cepSegurado
+                    - estadoSegurado
+                  properties:
+                    codigoSusep:
+                      type: string
+                      example: "1234"
+                    nomeSeguradora:
+                      type: string
+                      example: "Seguradora Exemplo"
+                    numeroApolice:
+                      type: string
+                      example: "AP123456789"
+                    codigoSegmento:
+                      type: string
+                      example: "0"
+                    codigoCobertura:
+                      type: string
+                      example: "1"
+                    codigoOperacao:
+                      type: string
+                      example: "A"
+                    statusApolice:
+                      type: boolean
+                      example: true
+                    numeroApoliceAnterior:
+                      type: string
+                      nullable: true
+                      example: null
+                    dataEmissao:
+                      type: string
+                      format: date
+                      example: "2025-01-01"
+                    dataInicioVigencia:
+                      type: string
+                      format: date
+                      example: "2025-01-02"
+                    dataFimVigencia:
+                      type: string
+                      format: date
+                      example: "2026-01-01"
+                    nomeSegurado:
+                      type: string
+                      example: "João da Silva"
+                    documentoSegurado:
+                      type: string
+                      example: "12345678901"
+                    cepSegurado:
+                      type: string
+                      example: "1234567"
+                    estadoSegurado:
+                      type: string
+                      example: "SP"
+                    nomeCondutor:
+                      type: string
+                      example: "João da Silva"
+                    cpfCondutor:
+                      type: string
+                      example: "12345678901"
+                    cepPernoite:
+                      type: string
+                      example: "1234567"
+                itens:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - numeroItem
+                      - modeloVeiculo
+                      - codigoFipe
+                      - anoFabricacao
+                      - anoModelo
+                      - veiculoZeroKm
+                      - chassiVeiculo
+                      - codigoCategoria
+                      - nomeCategoria
+                      - dataEmissao
+                      - dataInicioVigencia
+                      - dataFimVigencia
+                      - statusItem
+                    properties:
+                      numeroItem:
+                        type: integer
+                        example: 1
+                      modeloVeiculo:
+                        type: string
+                        example: "Fiat Uno"
+                      codigoFipe:
+                        type: string
+                        example: "12345678"
+                      anoFabricacao:
+                        type: integer
+                        example: 2024
+                      anoModelo:
+                        type: integer
+                        example: 2025
+                      veiculoZeroKm:
+                        type: boolean
+                        example: true
+                      placaVeiculo:
+                        type: string
+                        nullable: true
+                        example: null
+                      chassiVeiculo:
+                        type: string
+                        example: "9BWZZZ377VT004251"
+                      codigoCategoria:
+                        type: string
+                        example: "C123"
+                      nomeCategoria:
+                        type: string
+                        example: "Compacto"
+                      dataEmissao:
+                        type: string
+                        format: date
+                        example: "2025-01-01"
+                      dataInicioVigencia:
+                        type: string
+                        format: date
+                        example: "2025-01-02"
+                      dataFimVigencia:
+                        type: string
+                        format: date
+                        example: "2026-01-01"
+                      statusItem:
+                        type: boolean
+                        example: true
+      responses:
+        '201':
+          description: Apólice criada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Apolice'
+
+    put:
+      summary: Atualizar uma apólice existente
+      operationId: atualizarApolice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                numeroApolice:
+                  type: string
+                  example: "000123456789"
+                codigoOperacao:
+                  type: string
+                  example: "1"
+                dataEmissao:
+                  type: string
+                  format: date
+                  example: "2025-01-01"
+                dataIniVigencia:
+                  type: string
+                  format: date
+                  example: "2025-01-06"
+                codigoStatusApolice:
+                  type: boolean
+                  example: true
+                idTipoEndosso:
+                  type: integer
+                  example: 4
+                item:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      numeroItem:
+                        type: integer
+                        example: 1
+                      nomeModelo:
+                        type: string
+                        example: "Honda Civic"
+                      codigoFipe:
+                        type: string
+                        example: "87654321"
+                      numeroAnoFabricacao:
+                        type: integer
+                        example: 2024
+                      numeroAnoModelo:
+                        type: integer
+                        example: 2024
+                      indicadorZeroKm:
+                        type: boolean
+                        example: false
+                      numeroPlaca:
+                        type: string
+                        example: "DEF5678"
+                      numeroChassi:
+                        type: string
+                        example: "8GHJKA98765432123"
+                      codigoCategoria:
+                        type: string
+                        example: "002"
+                      nomeCategoria:
+                        type: string
+                        example: "SUV"
+                      dataEmissao:
+                        type: string
+                        format: date
+                        example: "2025-01-16"
+                      dataInicioVigencia:
+                        type: string
+                        format: date
+                        example: "2025-01-17"
+                      dataFimVigencia:
+                        type: string
+                        format: date
+                        example: "2026-01-17"
+                      codigoStatusItem:
+                        type: string
+                        example: "VIGENTE"
+      responses:
+        '200':
+          description: Apólice atualizada com sucesso
+
+    get:
+      summary: Obter detalhes de apólices
+      operationId: obterApolices
+      responses:
+        '200':
+          description: Dados da apólice recuperados com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Apolice'
+
+components:
+  schemas:
+    Apolice:
+      type: object
+      properties:
+        dadosDaApolice:
+          type: object
+          required:
+            - codigoSusep
+            - nomeSeguradora
+            - numeroApolice
+            - codigoSegmento
+            - codigoCobertura
+            - codigoOperacao
+            - statusApolice
+            - dataEmissao
+            - dataInicioVigencia
+            - dataFimVigencia
+            - nomeSegurado
+            - documentoSegurado
+            - cepSegurado
+            - estadoSegurado
+          properties:
+            codigoSusep:
+              type: string
+            nomeSeguradora:
+              type: string
+            numeroApolice:
+              type: string
+            codigoSegmento:
+              type: string
+            codigoCobertura:
+              type: string
+            codigoOperacao:
+              type: string
+            statusApolice:
+              type: boolean
+            numeroApoliceAnterior:
+              type: string
+              nullable: true
+            dataEmissao:
+              type: string
+              format: date
+            dataInicioVigencia:
+              type: string
+              format: date
+            dataFimVigencia:
+              type: string
+              format: date
+            nomeSegurado:
+              type: string
+            documentoSegurado:
+              type: string
+            cepSegurado:
+              type: string
+            estadoSegurado:
+              type: string
+            nomeCondutor:
+              type: string
+            cpfCondutor:
+              type: string
+            cepPernoite:
+              type: string
+        itens:
+          type: array
+          items:
+            type: object
+            required:
+              - numeroItem
+              - modeloVeiculo
+              - codigoFipe
+              - anoFabricacao
+              - anoModelo
+              - veiculoZeroKm
+              - chassiVeiculo
+              - codigoCategoria
+              - nomeCategoria
+              - dataEmissao
+              - dataInicioVigencia
+              - dataFimVigencia
+              - statusItem
+            properties:
+              numeroItem:
+                type: integer
+              modeloVeiculo:
+                type: string
+              codigoFipe:
+                type: string
+              anoFabricacao:
+                type: integer
+              anoModelo:
+                type: integer
+              veiculoZeroKm:
+                type: boolean
+              placaVeiculo:
+                type: string
+                nullable: true
+              chassiVeiculo:
+                type: string
+              codigoCategoria:
+                type: string
+              nomeCategoria:
+                type: string
+              dataEmissao:
+                type: string
+                format: date
+              dataInicioVigencia:
+                type: string
+                format: date
+              dataFimVigencia:
+                type: string
+                format: date
+              statusItem:
+                type: boolean
