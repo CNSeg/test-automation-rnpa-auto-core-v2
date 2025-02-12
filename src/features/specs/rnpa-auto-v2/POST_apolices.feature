@@ -27,7 +27,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # nomeSeguradora
 
     @CT2-post-apolices
-    Esquema do Cenário: CT-2.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "nomeSeguradora" | <descricao>
+    Esquema do Cenário: CT2.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "nomeSeguradora" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "nomeSeguradora" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -44,7 +44,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # numeroApolice
 
     @CT3-post-apolices @testes
-    Esquema do Cenário: CT-3.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "numeroApolice" | <descricao>
+    Esquema do Cenário: CT3.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "numeroApolice" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "numeroApolice" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -61,7 +61,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # codigoSegmento
 
     @CT4-post-apolices
-    Esquema do Cenário: CT-4.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "codigoSegmento" | <descricao>
+    Esquema do Cenário: CT4.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "codigoSegmento" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "codigoSegmento" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -78,7 +78,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # documentoSegurado
 
     @CT5-post-apolices
-    Esquema do Cenário: CT-5.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "documentoSegurado" | <descricao>
+    Esquema do Cenário: CT5.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "documentoSegurado" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "documentoSegurado" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -110,7 +110,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
     # dataEmissao     
 
     @CT6-post-apolices
-    Esquema do Cenário: CT-6.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "dataEmissao"  | <descricao>
+    Esquema do Cenário: CT6.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "dataEmissao"  | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "dataEmissao" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -134,7 +134,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
     # dataInicioVigencia
 
     @CT7-post-apolices
-    Esquema do Cenário: CT-7.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "dataInicioVigencia" | <descricao>
+    Esquema do Cenário: CT7.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "dataInicioVigencia" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "dataInicioVigencia" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -158,7 +158,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
     # dataFimVigencia
 
     @CT8-post-apolices
-    Esquema do Cenário: CT-8.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "dataFimVigencia" | <descricao>
+    Esquema do Cenário: CT8.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "dataFimVigencia" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "dataFimVigencia" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -182,7 +182,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
     # Regras de negócio das datas de emissão, início e fim da vigência 
 
     @CT9-post-apolices
-    Esquema do Cenário: CT-9.<casoDeTeste> - Falha - Violação dos campos data  | <descricao>
+    Esquema do Cenário: CT9.<casoDeTeste> - Falha - Violação dos campos data  | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "dataEmissao" dos dados da apólice tenha o valor "<valorDataEmissao>"
         E que quero que o campo "dataInicioVigencia" dos dados da apólice tenha o valor "<valorDataInicio>"
@@ -200,7 +200,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # placaVeiculo
 
     @CT10-post-apolices
-    Esquema do Cenário: CT-10.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "placaVeiculo" | <descricao>
+    Esquema do Cenário: CT10.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "placaVeiculo" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "placaVeiculo" dos dados do veículo tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -224,7 +224,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # chassiVeiculo
 
     @CT11-post-apolices
-    Esquema do Cenário: CT-11.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "chassiVeiculo" | <descricao>
+    Esquema do Cenário: CT11.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "chassiVeiculo" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "chassiVeiculo" dos dados do veículo tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -242,7 +242,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # codigoFipe
 
     @CT12-post-apolices
-    Esquema do Cenário: CT-12.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "codigoFipe" | <descricao>
+    Esquema do Cenário: CT12.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "codigoFipe" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "codigoFipe" dos dados do veículo tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -260,7 +260,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # cepSegurado
 
     @CT13-post-apolices 
-    Esquema do Cenário: CT-13.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "cepSegurado" | <descricao>
+    Esquema do Cenário: CT13.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "cepSegurado" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "cepSegurado" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -280,7 +280,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # cepPernoite
 
     @CT14-post-apolices 
-    Esquema do Cenário: CT-14.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "cepPernoite" | <descricao>
+    Esquema do Cenário: CT14.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "cepPernoite" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "cepPernoite" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -299,7 +299,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # operacao
 
     # @CT15-post-apolices
-    # Esquema do Cenário: CT-15.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "operacao" | <descricao> 
+    # Esquema do Cenário: CT15.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "operacao" | <descricao> 
     #     Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
     #     E que quero que o campo "operacao" dos dados da apólice tenha o valor "<valor>"
     #     Quando realizar a chamada de CRIAÇÃO de apolice
@@ -312,7 +312,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
     #         # | 5           | nulo          | 400        | 400.001 | O campo operacao não pode ser nulo ou em branco. | Com valor nulo                |
 
     # @CT16-post-apolices
-    # Esquema do Cenário: CT-16.<casoDeTeste> - Sucesso - Criação de apólice com cada tipo de operação | <descricao> 
+    # Esquema do Cenário: CT16.<casoDeTeste> - Sucesso - Criação de apólice com cada tipo de operação | <descricao> 
     #     Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
     #     E que quero que o campo "<valor>" dos dados da apólice tenha o valor "<valorDataEmissao>"
     #     Quando realizar a chamada de CRIAÇÃO de apolice
@@ -331,7 +331,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # cpfCondutor
 
     @CT17-post-apolices
-    Esquema do Cenário: CT-17.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "cpfCondutor" | <descricao>
+    Esquema do Cenário: CT17.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "cpfCondutor" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "cpfCondutor" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -351,7 +351,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # Validação de apólice
 
     @CT18-post-apolices
-    Cenário: CT-18 - Falha - Tentativa de cadastro de duas apólices com o mesmo número
+    Cenário: CT18 - Falha - Tentativa de cadastro de duas apólices com o mesmo número
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "numeroApolice" dos dados da apólice tenha o valor "1"
         E realizar a chamada de CRIAÇÃO de apolice
@@ -362,7 +362,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # Campos opcionais não preenhidos
 
     @CT19-post-apolices
-    Cenário: CT-19 - Sucesso - Criação de apólice sem os campos opcionais
+    Cenário: CT19 - Sucesso - Criação de apólice sem os campos opcionais
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "nomeCondutor" dos dados da apólice tenha o valor "nulo"
         E que quero que o campo "cpfCondutor" dos dados da apólice tenha o valor "nulo"
@@ -372,7 +372,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 
 # dadosApolice
     @CT20-post-apolices
-    Esquema do Cenário: CT-20 - Falha - Validação do campo "dadosDaApolice"
+    Esquema do Cenário: CT20 - Falha - Validação do campo "dadosDaApolice"
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "dadosDaApolice" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -387,7 +387,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 
 # itens
     @CT21-post-apolices
-    Esquema do Cenário: CT-21 - Falha - Validação do campo "itens"
+    Esquema do Cenário: CT21 - Falha - Validação do campo "itens"
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "itens" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -399,3 +399,130 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
             | 2           | string vazia | 400        | 400.019 | Dados da apólice inválido. | Com string vazia  |
             | 3           | objeto vazio | 400        | 400.000 | Requisição inválida.       | Como objeto vazio |
             | 4           | array vazio  | 400        | 400.000 | Requisição inválida.       | Como array vazio  |
+
+# codigoSusep
+    @CT22-post-apolices
+    Esquema do Cenário: CT22.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "codigoSusep" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "codigoSusep" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                             | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.codigoSusep` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                 | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                 | Como array vazio  |
+
+# codigoCobertura
+    @CT23-post-apolices
+    Esquema do Cenário: CT23.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "codigoCobertura" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "codigoCobertura" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                             | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.codigoSusep` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                 | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                 | Como array vazio  |
+
+# codigoOperacao
+    @CT24-post-apolices
+    Esquema do Cenário: CT24.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "codigoOperacao" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "codigoOperacao" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.codigoOperacao` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+
+# statusApolice
+    @CT25-post-apolices
+    Esquema do Cenário: CT25.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "statusApolice" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "statusApolice" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                               | descricao          |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.statusApolice` não pode ser nulo ou em branco. | Com valor nulo     |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                   | Como objeto vazio  |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                   | Como array vazio   |
+            | 4           | string vazia | 400        | 400.000 | Requisição inválida.                                                   | Com string vazia   |
+            | 5           | numerico     | 400        | 400.000 | Requisição inválida.                                                   | Com valor numérico |
+
+# numeroApoliceAnterior
+    @CT26-post-apolices
+    Esquema do Cenário: CT26.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "numeroApoliceAnterior" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "numeroApoliceAnterior" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.numeroApoliceAnterior` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+
+# nomeSegurado
+    @CT27-post-apolices
+    Esquema do Cenário: CT27.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "nomeSegurado" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "nomeSegurado" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.nomeSegurado` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+
+# nomeSegurado
+    @CT28-post-apolices
+    Esquema do Cenário: CT27.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "nomeSegurado" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "nomeSegurado" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.nomeSegurado` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+
+# estadoSegurado
+    @CT29-post-apolices
+    Esquema do Cenário: CT27.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "estadoSegurado" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "estadoSegurado" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.estadoSegurado` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+
+# estadoSegurado
+    @CT30-post-apolices
+    Esquema do Cenário: CT30.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "estadoSegurado" | <descricao>
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "estadoSegurado" dos dados da apólice tenha o valor "<valor>"
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
+        Exemplos:
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
+            | 1           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
+            | 2           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
