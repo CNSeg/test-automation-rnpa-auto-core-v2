@@ -1,0 +1,7 @@
+{
+    "cucumberautocomplete.steps": [
+        "src/features/step-definitions/rnpa-auto-v2/*.js",
+        "src/features/step-definitions/*.js"
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true
+}
