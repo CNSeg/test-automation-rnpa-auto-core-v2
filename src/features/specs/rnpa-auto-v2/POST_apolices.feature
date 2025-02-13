@@ -10,8 +10,8 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 
 # -------------------------------------------------------------- Sucesso --------------------------------------------------------------------
 
-    @CT1-post-apolices
-    Cenário: CT1 - Sucesso - Criação de apólice
+    @CT1-post-apolices @testes
+    Cenário: CT1.<casoDeTeste> - Sucesso - Criação de apólice | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "documentoSegurado" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
@@ -43,7 +43,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 
 # numeroApolice
 
-    @CT3-post-apolices @testes
+    @CT3-post-apolices
     Esquema do Cenário: CT3.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "numeroApolice" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "numeroApolice" dos dados da apólice tenha o valor "<valor>"
@@ -51,12 +51,12 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor         | statusCode | codigo  | mensagem                                                              | descricao                       |
-            | 1           | 21 caracteres | 400        | 400.003 | O campo dadosDaApolice.numeroApolice deve ser inferior ou igual à 20. | Com limite MÁXIMO de caracteres |
-            | 2           | string vazia  | 400        | 400.015 | Campo `dadosDaApolice.numeroApolice` inválido.                        | Com string vazia                |
-            | 3           | nulo          | 400        | 400.015 | Campo `dadosDaApolice.numeroApolice` inválido.                        | Com valor nulo                  |
-            | 4           | objeto vazio  | 400        | 400.000 | Requisição inválida.                                                  | Como objeto vazio               |
-            | 5           | array vazio   | 400        | 400.000 | Requisição inválida.                                                  | Como array vazio                |
+            | casoDeTeste | valor         | statusCode | codigo  | mensagem                                                                | descricao                       |
+            | 1           | 21 caracteres | 400        | 400.003 | O campo `dadosDaApolice.numeroApolice` deve ser inferior ou igual à 20. | Com limite MÁXIMO de caracteres |
+            | 2           | string vazia  | 400        | 400.001 | O campo `dadosDaApolice.numeroApolice` não pode ser nulo ou em branco.  | Com string vazia                |
+            | 3           | nulo          | 400        | 400.001 | O campo `dadosDaApolice.numeroApolice` não pode ser nulo ou em branco.  | Com valor nulo                  |
+            | 4           | objeto vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio               |
+            | 5           | array vazio   | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio                |
 
 # codigoSegmento
 
@@ -68,16 +68,16 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor         | statusCode | codigo  | mensagem                                                               | descricao                       |
-            | 1           | 21 caracteres | 400        | 400.003 | O campo dadosDaApolice.codigoSegmento deve ser inferior ou igual à 20. | Com limite MÁXIMO de caracteres |
-            | 2           | string vazia  | 400        | 400.001 | O campo dadosDaApolice.codigoSegmento não pode ser nulo ou em branco.  | Com string vazia                |
-            | 3           | nulo          | 400        | 400.001 | O campo dadosDaApolice.codigoSegmento não pode ser nulo ou em branco.  | Com valor nulo                  |
-            | 4           | objeto vazio  | 400        | 400.000 | Requisição inválida.                                                   | Como objeto vazio               |
-            | 5           | array vazio   | 400        | 400.000 | Requisição inválida.                                                   | Como array vazio                |
+            | casoDeTeste | valor         | statusCode | codigo  | mensagem                                                                 | descricao                       |
+            | 1           | 21 caracteres | 400        | 400.003 | O campo `dadosDaApolice.codigoSegmento` deve ser inferior ou igual à 20. | Com limite MÁXIMO de caracteres |
+            | 2           | string vazia  | 400        | 400.001 | O campo `dadosDaApolice.codigoSegmento` não pode ser nulo ou em branco.  | Com string vazia                |
+            | 3           | nulo          | 400        | 400.001 | O campo `dadosDaApolice.codigoSegmento` não pode ser nulo ou em branco.  | Com valor nulo                  |
+            | 4           | objeto vazio  | 400        | 400.000 | Requisição inválida.                                                     | Como objeto vazio               |
+            | 5           | array vazio   | 400        | 400.000 | Requisição inválida.                                                     | Como array vazio                |
 
 # documentoSegurado
 
-    @CT5-post-apolices
+    @CT5-post-apolices @testes
     Esquema do Cenário: CT5.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "documentoSegurado" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "documentoSegurado" dos dados da apólice tenha o valor "<valor>"
@@ -85,25 +85,25 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor              | statusCode | codigo  | mensagem                                                                 | descricao                                            |
-            | 1           | 33460526051        | 400        | 400.019 | Documento inválido.                                                      | Com CPF inválido                                     |
-            | 2           | 334.605.260-50     | 400        | 400.019 | Documento inválido.                                                      | Com CPF válido com os dígitos da máscara             |
-            | 3           | 334.605.260-51     | 400        | 400.019 | Documento inválido.                                                      | Com CPF inválido com os dígitos da máscara           |
-            | 4           | 3346052605         | 400        | 400.019 | Documento inválido.                                                      | Com valor de 12 números                              |
-            | 5           | 334605260512       | 400        | 400.019 | Documento inválido.                                                      | Com valor de 10 números                              |
-            | 6           | 64554367000131     | 400        | 400.019 | Documento inválido.                                                      | Com CNPJ inválido                                    |
-            | 7           | 64.554.367/0001-30 | 400        | 400.019 | Documento inválido.                                                      | Com CPNJ válido com os dígitos da máscara            |
-            | 8           | 64.554.367/0001-31 | 400        | 400.019 | Documento inválido.                                                      | Com CPNJ inválido com os dígitos da máscara          |
-            | 9           | 6455436700013      | 400        | 400.019 | Documento inválido.                                                      | Com valor de 13 números                              |
-            | 10          | 645543670001312    | 400        | 400.019 | Documento inválido.                                                      | Com valor de 15 números                              |
-            | 11          | string vazia       | 400        | 400.001 | O campo dadosDaApolice.documentoSegurado não pode ser nulo ou em branco. | Com string vazia                                     |
-            | 12          | nulo               | 400        | 400.001 | O campo dadosDaApolice.documentoSegurado não pode ser nulo ou em branco. | Com valor nulo                                       |
-            | 13          | 12@BC34501DE35     | 400        | 400.019 | Documento inválido.                                                      | CNPJ alfanumérico com caractere especial             |
-            | 14          | 12ABC34501DE34     | 400        | 400.019 | Documento inválido.                                                      | CNPJ alfanumérico com digito verificador inválido    |
-            | 15          | 12.ABC.345/01DE-35 | 400        | 400.019 | Documento inválido.                                                      | CNPJ alfanumérico válido com os dígitos da máscara   |
-            | 16          | 12.ABC.345/01DE-34 | 400        | 400.019 | Documento inválido.                                                      | CNPJ alfanumérico inválido com os dígitos da máscara |
-            | 17          | objeto vazio       | 400        | 400.000 | Requisição inválida.                                                     | Como objeto vazio                                    |
-            | 18          | array vazio        | 400        | 400.000 | Requisição inválida.                                                     | Como array vazio                                     |
+            | casoDeTeste | valor              | statusCode | codigo  | mensagem                                                                   | descricao                                            |
+            | 1           | 33460526051        | 400        | 400.019 | Documento inválido.                                                        | Com CPF inválido                                     |
+            | 2           | 334.605.260-50     | 400        | 400.019 | Documento inválido.                                                        | Com CPF válido com os dígitos da máscara             |
+            | 3           | 334.605.260-51     | 400        | 400.019 | Documento inválido.                                                        | Com CPF inválido com os dígitos da máscara           |
+            | 4           | 3346052605         | 400        | 400.019 | Documento inválido.                                                        | Com valor de 12 números                              |
+            | 5           | 334605260512       | 400        | 400.019 | Documento inválido.                                                        | Com valor de 10 números                              |
+            | 6           | 64554367000131     | 400        | 400.019 | Documento inválido.                                                        | Com CNPJ inválido                                    |
+            | 7           | 64.554.367/0001-30 | 400        | 400.019 | Documento inválido.                                                        | Com CPNJ válido com os dígitos da máscara            |
+            | 8           | 64.554.367/0001-31 | 400        | 400.019 | Documento inválido.                                                        | Com CPNJ inválido com os dígitos da máscara          |
+            | 9           | 6455436700013      | 400        | 400.019 | Documento inválido.                                                        | Com valor de 13 números                              |
+            | 10          | 645543670001312    | 400        | 400.019 | Documento inválido.                                                        | Com valor de 15 números                              |
+            | 11          | string vazia       | 400        | 400.001 | O campo `dadosDaApolice.documentoSegurado` não pode ser nulo ou em branco. | Com string vazia                                     |
+            | 12          | nulo               | 400        | 400.001 | O campo `dadosDaApolice.documentoSegurado` não pode ser nulo ou em branco. | Com valor nulo                                       |
+            | 13          | 12@BC34501DE35     | 400        | 400.019 | Documento inválido.                                                        | CNPJ alfanumérico com caractere especial             |
+            | 14          | 12ABC34501DE34     | 400        | 400.019 | Documento inválido.                                                        | CNPJ alfanumérico com digito verificador inválido    |
+            | 15          | 12.ABC.345/01DE-35 | 400        | 400.019 | Documento inválido.                                                        | CNPJ alfanumérico válido com os dígitos da máscara   |
+            | 16          | 12.ABC.345/01DE-34 | 400        | 400.019 | Documento inválido.                                                        | CNPJ alfanumérico inválido com os dígitos da máscara |
+            | 17          | objeto vazio       | 400        | 400.000 | Requisição inválida.                                                       | Como objeto vazio                                    |
+            | 18          | array vazio        | 400        | 400.000 | Requisição inválida.                                                       | Como array vazio                                     |
 
 # Datas
 
@@ -117,19 +117,19 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                           | descricao                              |
-            | 1           | 2025-15-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                          | Data no padrão YYYY-DD-MM              |
-            | 2           | 15-01-2025   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                          | Data no padrão DD-MM-YYYY              |
-            | 3           | 15-2025-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                          | Data no padrão DD-YYYY                 |
-            | 4           | YYYY-MM-DD   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                          | Data com letras, no padrão YYYY-MM-DD  |
-            | 5           | YYYY-DD-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                          | Data com letras, Tno padrão YYYY-DD-MM |
-            | 6           | DD-MM-YYYY   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                          | Data com letras, no padrão DD-MM-YYYY  |
-            | 7           | DD-YYYY-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                          | Data com letras, no padrão DD-YYYY-MM  |
-            | 8           | 20250115     | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                          | Data sem hífen                         |
-            | 9           | string vazia | 400        | 400.001 | O campo dadosDaApolice.dataEmissao não pode ser nulo ou em branco. | Com string vazia                       |
-            | 10          | nulo         | 400        | 400.001 | O campo dadosDaApolice.dataEmissao não pode ser nulo ou em branco. | Com valor nulo                         |
-            | 11          | objeto vazio | 400        | 400.000 | Requisição inválida.                                               | Como objeto vazio                      |
-            | 12          | array vazio  | 400        | 400.000 | Requisição inválida.                                               | Como array vazio                       |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                             | descricao                              |
+            | 1           | 2025-15-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                            | Data no padrão YYYY-DD-MM              |
+            | 2           | 15-01-2025   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                            | Data no padrão DD-MM-YYYY              |
+            | 3           | 15-2025-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                            | Data no padrão DD-YYYY                 |
+            | 4           | YYYY-MM-DD   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                            | Data com letras, no padrão YYYY-MM-DD  |
+            | 5           | YYYY-DD-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                            | Data com letras, Tno padrão YYYY-DD-MM |
+            | 6           | DD-MM-YYYY   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                            | Data com letras, no padrão DD-MM-YYYY  |
+            | 7           | DD-YYYY-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                            | Data com letras, no padrão DD-YYYY-MM  |
+            | 8           | 20250115     | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                            | Data sem hífen                         |
+            | 9           | string vazia | 400        | 400.001 | O campo `dadosDaApolice.dataEmissao` não pode ser nulo ou em branco. | Com string vazia                       |
+            | 10          | nulo         | 400        | 400.001 | O campo `dadosDaApolice.dataEmissao` não pode ser nulo ou em branco. | Com valor nulo                         |
+            | 11          | objeto vazio | 400        | 400.000 | Requisição inválida.                                                 | Como objeto vazio                      |
+            | 12          | array vazio  | 400        | 400.000 | Requisição inválida.                                                 | Como array vazio                       |
     
     # dataInicioVigencia
 
@@ -141,19 +141,19 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                  | descricao                              |
-            | 1           | 2025-15-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                 | Data no padrão YYYY-DD-MM              |
-            | 2           | 15-01-2025   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                 | Data no padrão DD-MM-YYYY              |
-            | 3           | 15-2025-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                 | Data no padrão DD-YYYY                 |
-            | 4           | YYYY-MM-DD   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                 | Data com letras, no padrão YYYY-MM-DD  |
-            | 5           | YYYY-DD-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                 | Data com letras, Tno padrão YYYY-DD-MM |
-            | 6           | DD-MM-YYYY   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                 | Data com letras, no padrão DD-MM-YYYY  |
-            | 7           | DD-YYYY-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                 | Data com letras, no padrão DD-YYYY-MM  |
-            | 8           | 20250115     | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                 | Data sem hífen                         |
-            | 9           | string vazia | 400        | 400.001 | O campo dadosDaApolice.dataInicioVigencia não pode ser nulo ou em branco. | Com string vazia                       |
-            | 10          | nulo         | 400        | 400.001 | O campo dadosDaApolice.dataInicioVigencia não pode ser nulo ou em branco. | Com valor nulo                         |
-            | 11          | objeto vazio | 400        | 400.000 | Requisição inválida.                                                      | Como objeto vazio                      |
-            | 12          | array vazio  | 400        | 400.000 | Requisição inválida.                                                      | Como array vazio                       |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                    | descricao                              |
+            | 1           | 2025-15-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                   | Data no padrão YYYY-DD-MM              |
+            | 2           | 15-01-2025   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                   | Data no padrão DD-MM-YYYY              |
+            | 3           | 15-2025-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                   | Data no padrão DD-YYYY                 |
+            | 4           | YYYY-MM-DD   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                   | Data com letras, no padrão YYYY-MM-DD  |
+            | 5           | YYYY-DD-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                   | Data com letras, Tno padrão YYYY-DD-MM |
+            | 6           | DD-MM-YYYY   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                   | Data com letras, no padrão DD-MM-YYYY  |
+            | 7           | DD-YYYY-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                   | Data com letras, no padrão DD-YYYY-MM  |
+            | 8           | 20250115     | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                   | Data sem hífen                         |
+            | 9           | string vazia | 400        | 400.001 | O campo `dadosDaApolice.dataInicioVigencia` não pode ser nulo ou em branco. | Com string vazia                       |
+            | 10          | nulo         | 400        | 400.001 | O campo `dadosDaApolice.dataInicioVigencia` não pode ser nulo ou em branco. | Com valor nulo                         |
+            | 11          | objeto vazio | 400        | 400.000 | Requisição inválida.                                                        | Como objeto vazio                      |
+            | 12          | array vazio  | 400        | 400.000 | Requisição inválida.                                                        | Como array vazio                       |
     
     # dataFimVigencia
 
@@ -165,19 +165,19 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                               | descricao                              |
-            | 1           | 2025-15-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                              | Data no padrão YYYY-DD-MM              |
-            | 2           | 15-01-2025   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                              | Data no padrão DD-MM-YYYY              |
-            | 3           | 15-2025-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                              | Data no padrão DD-YYYY                 |
-            | 4           | YYYY-MM-DD   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                              | Data com letras, no padrão YYYY-MM-DD  |
-            | 5           | YYYY-DD-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                              | Data com letras, Tno padrão YYYY-DD-MM |
-            | 6           | DD-MM-YYYY   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                              | Data com letras, no padrão DD-MM-YYYY  |
-            | 7           | DD-YYYY-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                              | Data com letras, no padrão DD-YYYY-MM  |
-            | 8           | 20250115     | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                              | Data sem hífen                         |
-            | 9           | string vazia | 400        | 400.001 | O campo dadosDaApolice.dataFimVigencia não pode ser nulo ou em branco. | Com string vazia                       |
-            | 10          | nulo         | 400        | 400.001 | O campo dadosDaApolice.dataFimVigencia não pode ser nulo ou em branco. | Com valor nulo                         |
-            | 11          | objeto vazio | 400        | 400.000 | Requisição inválida.                                                   | Como objeto vazio                      |
-            | 12          | array vazio  | 400        | 400.000 | Requisição inválida.                                                   | Como array vazio                       |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                 | descricao                              |
+            | 1           | 2025-15-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                | Data no padrão YYYY-DD-MM              |
+            | 2           | 15-01-2025   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                | Data no padrão DD-MM-YYYY              |
+            | 3           | 15-2025-01   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                | Data no padrão DD-YYYY                 |
+            | 4           | YYYY-MM-DD   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                | Data com letras, no padrão YYYY-MM-DD  |
+            | 5           | YYYY-DD-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                | Data com letras, Tno padrão YYYY-DD-MM |
+            | 6           | DD-MM-YYYY   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                | Data com letras, no padrão DD-MM-YYYY  |
+            | 7           | DD-YYYY-MM   | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                | Data com letras, no padrão DD-YYYY-MM  |
+            | 8           | 20250115     | 400        | 400.021 | Formato de data inválido. Use yyyy-MM-dd.                                | Data sem hífen                         |
+            | 9           | string vazia | 400        | 400.001 | O campo `dadosDaApolice.dataFimVigencia` não pode ser nulo ou em branco. | Com string vazia                       |
+            | 10          | nulo         | 400        | 400.001 | O campo `dadosDaApolice.dataFimVigencia` não pode ser nulo ou em branco. | Com valor nulo                         |
+            | 11          | objeto vazio | 400        | 400.000 | Requisição inválida.                                                     | Como objeto vazio                      |
+            | 12          | array vazio  | 400        | 400.000 | Requisição inválida.                                                     | Como array vazio                       |
     
     # Regras de negócio das datas de emissão, início e fim da vigência 
 
@@ -231,13 +231,13 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor              | statusCode | codigo  | mensagem                                                       | descricao               |
-            | 1           | 123456789012345678 | 400        | 400.015 | Campo `itens[0].chassiVeiculo` inválido.                       | Com valor de 18 números |
-            | 2           | 1234567890123456   | 400        | 400.015 | Campo `itens[0].chassiVeiculo` inválido.                       | Com valor de 16 números |
-            | 3           | string vazia       | 400        | 400.001 | O campo itens[0].chassiVeiculo não pode ser nulo ou em branco. | Com string vazia        |
-            | 4           | nulo               | 400        | 400.001 | O campo itens[0].chassiVeiculo não pode ser nulo ou em branco. | Com valor nulo          |
-            | 5           | objeto vazio       | 400        | 400.000 | Requisição inválida.                                           | Como objeto vazio       |
-            | 6           | array vazio        | 400        | 400.000 | Requisição inválida.                                           | Como array vazio        |
+            | casoDeTeste | valor              | statusCode | codigo  | mensagem                                                         | descricao               |
+            | 1           | 123456789012345678 | 400        | 400.015 | Campo `itens[0].chassiVeiculo` inválido.                         | Com valor de 18 números |
+            | 2           | 1234567890123456   | 400        | 400.015 | Campo `itens[0].chassiVeiculo` inválido.                         | Com valor de 16 números |
+            | 3           | string vazia       | 400        | 400.001 | O campo `itens[0].chassiVeiculo` não pode ser nulo ou em branco. | Com string vazia        |
+            | 4           | nulo               | 400        | 400.001 | O campo `itens[0].chassiVeiculo` não pode ser nulo ou em branco. | Com valor nulo          |
+            | 5           | objeto vazio       | 400        | 400.000 | Requisição inválida.                                             | Como objeto vazio       |
+            | 6           | array vazio        | 400        | 400.000 | Requisição inválida.                                             | Como array vazio        |
 
 # codigoFipe
 
@@ -249,13 +249,13 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                    | descricao              |
-            | 1           | 123456789    | 400        | 400.015 | Campo `itens[0].codigoFipe` inválido.                       | Com valor de 9 números |
-            | 2           | 1234567      | 400        | 400.015 | Campo `itens[0].codigoFipe` inválido.                       | Com valor de 7 números |
-            | 3           | string vazia | 400        | 400.001 | O campo itens[0].codigoFipe não pode ser nulo ou em branco. | Com string vazia       |
-            | 4           | nulo         | 400        | 400.001 | O campo itens[0].codigoFipe não pode ser nulo ou em branco. | Com valor nulo         |
-            | 5           | objeto vazio | 400        | 400.000 | Requisição inválida.                                        | Como objeto vazio      |
-            | 6           | array vazio  | 400        | 400.000 | Requisição inválida.                                        | Como array vazio       |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                      | descricao              |
+            | 1           | 123456789    | 400        | 400.015 | Campo `itens[0].codigoFipe` inválido.                         | Com valor de 9 números |
+            | 2           | 1234567      | 400        | 400.015 | Campo `itens[0].codigoFipe` inválido.                         | Com valor de 7 números |
+            | 3           | string vazia | 400        | 400.001 | O campo `itens[0].codigoFipe` não pode ser nulo ou em branco. | Com string vazia       |
+            | 4           | nulo         | 400        | 400.001 | O campo `itens[0].codigoFipe` não pode ser nulo ou em branco. | Com valor nulo         |
+            | 5           | objeto vazio | 400        | 400.000 | Requisição inválida.                                          | Como objeto vazio      |
+            | 6           | array vazio  | 400        | 400.000 | Requisição inválida.                                          | Como array vazio       |
 
 # cepSegurado
 
@@ -267,15 +267,15 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                           | descricao              |
-            | 1           | 123456789    | 400        | 400.015 | Campo `dadosDaApolice.cepSegurado` inválido.                       | Com valor de 9 números |
-            | 2           | 1234567      | 400        | 400.015 | Campo `dadosDaApolice.cepSegurado` inválido.                       | Com valor de 7 números |
-            | 3           | abcdefghi    | 400        | 400.015 | Campo `dadosDaApolice.cepSegurado` inválido.                       | Com 9 letras           |
-            | 4           | abcdefg      | 400        | 400.015 | Campo `dadosDaApolice.cepSegurado` inválido.                       | Com 7 letras           |
-            | 5           | string vazia | 400        | 400.001 | O campo dadosDaApolice.cepSegurado não pode ser nulo ou em branco. | Com string vazia       |
-            | 6           | nulo         | 400        | 400.001 | O campo dadosDaApolice.cepSegurado não pode ser nulo ou em branco. | Com valor nulo         |
-            | 7           | objeto vazio | 400        | 400.000 | Requisição inválida.                                               | Como objeto vazio      |
-            | 8           | array vazio  | 400        | 400.000 | Requisição inválida.                                               | Como array vazio       |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                             | descricao              |
+            | 1           | 123456789    | 400        | 400.015 | Campo `dadosDaApolice.cepSegurado` inválido.                         | Com valor de 9 números |
+            | 2           | 1234567      | 400        | 400.015 | Campo `dadosDaApolice.cepSegurado` inválido.                         | Com valor de 7 números |
+            | 3           | abcdefghi    | 400        | 400.015 | Campo `dadosDaApolice.cepSegurado` inválido.                         | Com 9 letras           |
+            | 4           | abcdefg      | 400        | 400.015 | Campo `dadosDaApolice.cepSegurado` inválido.                         | Com 7 letras           |
+            | 5           | string vazia | 400        | 400.001 | O campo `dadosDaApolice.cepSegurado` não pode ser nulo ou em branco. | Com string vazia       |
+            | 6           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.cepSegurado` não pode ser nulo ou em branco. | Com valor nulo         |
+            | 7           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                 | Como objeto vazio      |
+            | 8           | array vazio  | 400        | 400.000 | Requisição inválida.                                                 | Como array vazio       |
 
 # cepPernoite
 
@@ -330,7 +330,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 
 # cpfCondutor
 
-    @CT17-post-apolices
+    @CT17-post-apolices @testes
     Esquema do Cenário: CT17.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "cpfCondutor" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "cpfCondutor" dos dados da apólice tenha o valor "<valor>"
@@ -356,8 +356,8 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         E que quero que o campo "numeroApolice" dos dados da apólice tenha o valor "1"
         E realizar a chamada de CRIAÇÃO de apolice
         Quando realizar a chamada de CRIAÇÃO de apolice
-        Então o statusCode HTTP deve ser "400"
-        E a resposta contém um objeto com o código "400.020" e com a mensagem "Apólice com número existente."
+        Então o statusCode HTTP deve ser "409"
+        E a resposta contém um objeto com o código "409.001" e com a mensagem "Apólice com número existente."
 
 # Campos opcionais não preenhidos
 
@@ -367,38 +367,39 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         E que quero que o campo "nomeCondutor" dos dados da apólice tenha o valor "nulo"
         E que quero que o campo "cpfCondutor" dos dados da apólice tenha o valor "nulo"
         E que quero que o campo "cepPernoite" dos dados da apólice tenha o valor "nulo"
+        E que quero que o campo "numeroApoliceAnterior" dos dados da apólice tenha o valor "nulo"
         Quando realizar a chamada de CRIAÇÃO de apolice
         Então o statusCode HTTP deve ser "202"
 
 # dadosApolice
     @CT20-post-apolices
-    Esquema do Cenário: CT20 - Falha - Validação do campo "dadosDaApolice"
+    Esquema do Cenário: CT20.<casoDeTeste> - Falha - Validação do campo "dadosDaApolice" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
-        E que quero que o campo "dadosDaApolice" dos dados da apólice tenha o valor "<valor>"
+        E que quero que o campo "dadosDaApolice" do request body tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                   | descricao         |
-            | 1           | nulo         | 400        | 400.019 | Dados da apólice inválido. | Com valor nulo    |
-            | 2           | string vazia | 400        | 400.019 | Dados da apólice inválido. | Com string vazia  |
-            | 3           | array vazio  | 400        | 400.019 | Requisição inválida.       | Como array vazio  |
-            | 4           | objeto vazio | 400        | 400.019 | Requisição inválida.       | Como objeto vazio |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                               | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice` não pode ser nulo ou em branco.               | Com valor nulo    |
+            | 2           | string vazia | 400        | 400.000 | Requisição inválida.                                                   | Com string vazia  |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                   | Como array vazio  |
+            | 4           | objeto vazio | 400        | 400.001 | O campo `dadosDaApolice.numeroApolice` não pode ser nulo ou em branco. | Como objeto vazio |
 
 # itens
     @CT21-post-apolices
-    Esquema do Cenário: CT21 - Falha - Validação do campo "itens"
+    Esquema do Cenário: CT21.<casoDeTeste> - Falha - Validação do campo "itens" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
-        E que quero que o campo "itens" dos dados da apólice tenha o valor "<valor>"
+        E que quero que o campo "itens" do request body tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                   | descricao         |
-            | 1           | nulo         | 400        | 400.019 | Dados da apólice inválido. | Com valor nulo    |
-            | 2           | string vazia | 400        | 400.019 | Dados da apólice inválido. | Com string vazia  |
-            | 3           | objeto vazio | 400        | 400.000 | Requisição inválida.       | Como objeto vazio |
-            | 4           | array vazio  | 400        | 400.000 | Requisição inválida.       | Como array vazio  |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                        | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `itens` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | string vazia | 400        | 400.000 | Requisição inválida.                            | Com string vazia  |
+            | 3           | objeto vazio | 400        | 400.000 | Requisição inválida.                            | Como objeto vazio |
+            | 4           | array vazio  | 400        | 400.001 | O campo `itens` não pode ser nulo ou em branco. | Como array vazio  |
 
 # codigoSusep
     @CT22-post-apolices
@@ -423,10 +424,10 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                             | descricao         |
-            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.codigoSusep` não pode ser nulo ou em branco. | Com valor nulo    |
-            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                 | Como objeto vazio |
-            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                 | Como array vazio  |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                 | descricao         |
+            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.codigoCobertura` não pode ser nulo ou em branco. | Com valor nulo    |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                     | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                     | Como array vazio  |
 
 # codigoOperacao
     @CT24-post-apolices
@@ -455,8 +456,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
             | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.statusApolice` não pode ser nulo ou em branco. | Com valor nulo     |
             | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                   | Como objeto vazio  |
             | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                   | Como array vazio   |
-            | 4           | string vazia | 400        | 400.000 | Requisição inválida.                                                   | Com string vazia   |
-            | 5           | numerico     | 400        | 400.000 | Requisição inválida.                                                   | Com valor numérico |
+            | 4           | string vazia | 400        | 400.001 | O campo `dadosDaApolice.statusApolice` não pode ser nulo ou em branco. | Com string vazia   |
 
 # numeroApoliceAnterior
     @CT26-post-apolices
@@ -467,10 +467,9 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
-            | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.numeroApoliceAnterior` não pode ser nulo ou em branco. | Com valor nulo    |
-            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
-            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                       | descricao         |
+            | 1           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                           | Como objeto vazio |
+            | 2           | array vazio  | 400        | 400.000 | Requisição inválida.                                                           | Como array vazio  |
 
 # nomeSegurado
     @CT27-post-apolices
@@ -481,10 +480,10 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                              | descricao         |
             | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.nomeSegurado` não pode ser nulo ou em branco. | Com valor nulo    |
-            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
-            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                  | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                  | Como array vazio  |
 
 # nomeSegurado
     @CT28-post-apolices
@@ -495,10 +494,10 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                              | descricao         |
             | 1           | nulo         | 400        | 400.001 | O campo `dadosDaApolice.nomeSegurado` não pode ser nulo ou em branco. | Com valor nulo    |
-            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
-            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+            | 2           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                  | Como objeto vazio |
+            | 3           | array vazio  | 400        | 400.000 | Requisição inválida.                                                  | Como array vazio  |
 
 # estadoSegurado
     @CT29-post-apolices
@@ -523,6 +522,6 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                | descricao         |
-            | 1           | objeto vazio | 400        | 400.000 | Requisição inválida.                                                    | Como objeto vazio |
-            | 2           | array vazio  | 400        | 400.000 | Requisição inválida.                                                    | Como array vazio  |
+            | casoDeTeste | valor        | statusCode | codigo  | mensagem             | descricao         |
+            | 1           | objeto vazio | 400        | 400.000 | Requisição inválida. | Como objeto vazio |
+            | 2           | array vazio  | 400        | 400.000 | Requisição inválida. | Como array vazio  |
