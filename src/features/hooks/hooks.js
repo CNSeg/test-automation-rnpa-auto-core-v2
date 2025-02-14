@@ -9,10 +9,13 @@ Before(async (scenario) => {
 });
 
 Before({tags: 'not @post-apolices'}, async function () {
-  const rq = apoliceRequestBody();
-
-  this.preGeneratedApolice = await apoliceService.postApolices({ requestBody:  rq});
   
-  console.log("Apólice gerada previamente armazenada na variável 'this.preGeneratedApolice'");
-  console.log(rq.dadosDaApolice.numeroApolice);
+  if(process.env.NODE_ENV == "local" || process.env.NODE_ENV == "dev") {
+    const rq = apoliceRequestBody();
+
+    this.preGeneratedApolice = await apoliceService.postApolices({ requestBody:  rq});
+  
+    console.log("Apólice gerada previamente armazenada na variável 'this.preGeneratedApolice'");
+    console.log(rq.dadosDaApolice.numeroApolice);
+  }
 })

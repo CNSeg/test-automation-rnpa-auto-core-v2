@@ -10,7 +10,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 
 # -------------------------------------------------------------- Sucesso --------------------------------------------------------------------
 
-    @CT1-post-apolices @testes
+    @CT1-post-apolices 
     Cenário: CT1.<casoDeTeste> - Sucesso - Criação de apólice | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "documentoSegurado" dos dados da apólice tenha o valor "<valor>"
@@ -77,7 +77,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 
 # documentoSegurado
 
-    @CT5-post-apolices @testes
+    @CT5-post-apolices 
     Esquema do Cenário: CT5.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "documentoSegurado" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "documentoSegurado" dos dados da apólice tenha o valor "<valor>"
@@ -330,7 +330,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 
 # cpfCondutor
 
-    @CT17-post-apolices @testes
+    @CT17-post-apolices 
     Esquema do Cenário: CT17.<casoDeTeste> - Falha - Violação dos dados de entrada do campo "cpfCondutor" | <descricao>
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "cpfCondutor" dos dados da apólice tenha o valor "<valor>"

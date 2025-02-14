@@ -8,6 +8,10 @@
 # CNseg - RNPA Auto
 Testes no domínio de serviços RNPA Auto V2:
 
+
+### Notas
+  1. Apólices estão configuradas para serem **pré-geradas somente em ambiente LOCAL e de DESENVOLVIMENTO** (configurado em hooks/hooks.js);
+
 ### Setup
 
 #### 1 - Setup inicial
@@ -61,9 +65,10 @@ Geração de relatório do cucumber em html após os testes:
 npm run generate-report
 ```
 Para visualizar, basta abrir o relatório gerado no diretório `/report`
+
 #### 3 - Execução por tag @regressao
 ```
-@regressao - execução de todos os testes no ambiente de testing - cenários de sucesso e falhas. (Caso não informado na variável de ambiente será executado a tag @regressao como default)
+@regressao - execução de todos os testes no ambiente de testing - cenários de sucesso e falhas. (Caso não informado na variável de ambiente, será executado a tag @regressao como default)
 @e2e - execução dos testes end-to-end.
 @ignore - não executa o cenário com esta tag.
 ```
@@ -82,4 +87,4 @@ Para visualizar, basta abrir o relatório gerado no diretório `/report`
   3. Selecionar o terminal JavaScript Debug Terminal
   4. Executar o debug com o comando: ENV=dev TAGS=@regressao npm run debug
 ```
-**Obs:** O parâmetro ENV e TAGS são opcionais, por padrão o ENV sempre será sempre o ambiente de desemvolvimento e a TAGS será debug.
+**Obs:** O parâmetro ENV e TAGS são opcionais, por padrão o ENV sempre será sempre o ambiente de desenvolvimento e a TAGS será debug.

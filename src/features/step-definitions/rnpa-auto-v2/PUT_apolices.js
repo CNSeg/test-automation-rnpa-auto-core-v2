@@ -18,6 +18,10 @@ Given('que quero que o request body seja o padrão de ENDOSSO de apólice do tip
             this.requestBody = models.endossoRequestBody.substituicao();
             break;
         
+        case "COM ITEM VAZIO":
+            this.requestBody = models.endossoRequestBody.();
+            break;
+
         default:
             this.requestBody = models.reqEmpty;
     }

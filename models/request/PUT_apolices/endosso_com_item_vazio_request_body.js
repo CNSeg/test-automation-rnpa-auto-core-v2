@@ -1,5 +1,5 @@
 
-const endossoAlteracaoTecnica = () => ({
+const endossoComItemVazio = () => ({
     "numeroApolice": "000123456789",
     "codigoOperacao": "1",
     "dataEmissao": "2025-01-01",
@@ -9,14 +9,9 @@ const endossoAlteracaoTecnica = () => ({
     "estadoSegurado": "SP",
     "cepPernoite": "1234567",
     "idTipoEndosso": 4,
-    "item": [
-      {
-        "numeroItem": 1,
-        "dataEmissao": "2025-01-16",
-        "dataInicioVigencia": "2025-01-17",
-        "codigoStatusItem": true
-      }
-    ]
+    "item": [{
+      
+    }]
   });
   
   module.exports = endossoAlteracaoTecnica;
