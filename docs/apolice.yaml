@@ -12,149 +12,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                dadosDaApolice:
-                  type: object
-                  required:
-                    - codigoSusep
-                    - nomeSeguradora
-                    - numeroApolice
-                    - codigoSegmento
-                    - codigoCobertura
-                    - codigoOperacao
-                    - statusApolice
-                    - dataEmissao
-                    - dataInicioVigencia
-                    - dataFimVigencia
-                    - nomeSegurado
-                    - documentoSegurado
-                    - cepSegurado
-                    - estadoSegurado
-                  properties:
-                    codigoSusep:
-                      type: string
-                      example: "1234"
-                    nomeSeguradora:
-                      type: string
-                      example: "Seguradora Exemplo"
-                    numeroApolice:
-                      type: string
-                      example: "AP123456789"
-                    codigoSegmento:
-                      type: string
-                      example: "0"
-                    codigoCobertura:
-                      type: string
-                      example: "1"
-                    codigoOperacao:
-                      type: string
-                      example: "A"
-                    statusApolice:
-                      type: boolean
-                      example: true
-                    numeroApoliceAnterior:
-                      type: string
-                      nullable: true
-                      example: null
-                    dataEmissao:
-                      type: string
-                      format: date
-                      example: "2025-01-01"
-                    dataInicioVigencia:
-                      type: string
-                      format: date
-                      example: "2025-01-02"
-                    dataFimVigencia:
-                      type: string
-                      format: date
-                      example: "2026-01-01"
-                    nomeSegurado:
-                      type: string
-                      example: "João da Silva"
-                    documentoSegurado:
-                      type: string
-                      example: "12345678901"
-                    cepSegurado:
-                      type: string
-                      example: "1234567"
-                    estadoSegurado:
-                      type: string
-                      example: "SP"
-                    nomeCondutor:
-                      type: string
-                      example: "João da Silva"
-                    cpfCondutor:
-                      type: string
-                      example: "12345678901"
-                    cepPernoite:
-                      type: string
-                      example: "1234567"
-                itens:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - numeroItem
-                      - modeloVeiculo
-                      - codigoFipe
-                      - anoFabricacao
-                      - anoModelo
-                      - veiculoZeroKm
-                      - chassiVeiculo
-                      - codigoCategoria
-                      - nomeCategoria
-                      - dataEmissao
-                      - dataInicioVigencia
-                      - dataFimVigencia
-                      - statusItem
-                    properties:
-                      numeroItem:
-                        type: integer
-                        example: 1
-                      modeloVeiculo:
-                        type: string
-                        example: "Fiat Uno"
-                      codigoFipe:
-                        type: string
-                        example: "12345678"
-                      anoFabricacao:
-                        type: integer
-                        example: 2024
-                      anoModelo:
-                        type: integer
-                        example: 2025
-                      veiculoZeroKm:
-                        type: boolean
-                        example: true
-                      placaVeiculo:
-                        type: string
-                        nullable: true
-                        example: null
-                      chassiVeiculo:
-                        type: string
-                        example: "9BWZZZ377VT004251"
-                      codigoCategoria:
-                        type: string
-                        example: "C123"
-                      nomeCategoria:
-                        type: string
-                        example: "Compacto"
-                      dataEmissao:
-                        type: string
-                        format: date
-                        example: "2025-01-01"
-                      dataInicioVigencia:
-                        type: string
-                        format: date
-                        example: "2025-01-02"
-                      dataFimVigencia:
-                        type: string
-                        format: date
-                        example: "2026-01-01"
-                      statusItem:
-                        type: boolean
-                        example: true
+              $ref: '#/components/schemas/Apolice'
       responses:
         '201':
           description: Apólice criada com sucesso
@@ -262,6 +120,9 @@ components:
   schemas:
     Apolice:
       type: object
+      required:
+        - dadosDaApolice
+        - itens
       properties:
         dadosDaApolice:
           type: object
@@ -283,44 +144,64 @@ components:
           properties:
             codigoSusep:
               type: string
+              example: "1234"              
             nomeSeguradora:
               type: string
+              example: "Seguradora Exemplo"
             numeroApolice:
               type: string
+              example: "AP123456789"
             codigoSegmento:
-              type: string
+              enum:
+                  - "INDIVIDUAL"
+                  - "FROTA"
+              example: "INDIVIDUAL"
             codigoCobertura:
               type: string
+              example: "1"
             codigoOperacao:
               type: string
+              example: "A"
             statusApolice:
               type: boolean
+              example: true
             numeroApoliceAnterior:
               type: string
               nullable: true
+              example: null
             dataEmissao:
               type: string
               format: date
+              example: "2025-01-01"
             dataInicioVigencia:
               type: string
               format: date
+              example: "2025-01-02"
             dataFimVigencia:
               type: string
               format: date
+              example: "2026-01-01"
             nomeSegurado:
               type: string
+              example: "João da Silva"
             documentoSegurado:
               type: string
+              example: "12345678901"
             cepSegurado:
               type: string
+              example: "1234567"
             estadoSegurado:
               type: string
+              example: "SP"
             nomeCondutor:
               type: string
+              example: "João da Silva"
             cpfCondutor:
               type: string
+              example: "12345678901"
             cepPernoite:
               type: string
+              example: "1234567"
         itens:
           type: array
           items:
@@ -342,33 +223,47 @@ components:
             properties:
               numeroItem:
                 type: integer
+                example: 1
               modeloVeiculo:
                 type: string
+                example: "Fiat Uno"
               codigoFipe:
                 type: string
+                example: "12345678"
               anoFabricacao:
                 type: integer
+                example: 2024
               anoModelo:
                 type: integer
+                example: 2025
               veiculoZeroKm:
                 type: boolean
+                example: true
               placaVeiculo:
                 type: string
                 nullable: true
+                example: null
               chassiVeiculo:
                 type: string
+                example: "9BWZZZ377VT004251"
               codigoCategoria:
                 type: string
+                example: "C123"
               nomeCategoria:
                 type: string
+                example: "Compacto"
               dataEmissao:
                 type: string
                 format: date
+                example: "2025-01-01"
               dataInicioVigencia:
                 type: string
                 format: date
+                example: "2025-01-02"
               dataFimVigencia:
                 type: string
                 format: date
+                example: "2026-01-01"
               statusItem:
                 type: boolean
+                example: true
