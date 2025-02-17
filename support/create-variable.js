@@ -26,6 +26,16 @@ function createVariableFromString(value) {
     }
     else if (value == "array vazio"){
         newValue = []; 
+    }    
+    else if (value == "negativo"){
+        newValue = -1; 
+    }
+    else if (value == "ponto flutuante"){
+        newValue = 0.5; 
+    }
+    else if (value == "limite de inteiro"){
+        //  Inteiro em Java ("Integer") tem os limites [-2147483648, 2147483647]
+        newValue = 2147483648; 
     }
     else if (value == "objeto vazio"){
         newValue = {}; 
