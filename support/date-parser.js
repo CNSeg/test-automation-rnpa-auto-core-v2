@@ -1,4 +1,4 @@
-function parseDate({format, moment}) {
+function parseDate({format = "", moment = ""}) {
     var date = new Date(Date.now());
     
     switch (moment){

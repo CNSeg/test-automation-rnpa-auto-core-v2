@@ -6,7 +6,7 @@ const variableCreator = require("../../../../support/create-variable")
 
 
 Given('que quero que o request body seja o padrão de CRIAÇÃO de apolice', async function(){
-    this.requestBody = models.apoliceRequestBody();
+    this.requestBody = models.apoliceRequestBody.apoliceIndividual();
 
     var requestBody = this.requestBody;
     this.attach("Request Body:\n" + JSON.stringify(requestBody, null, 2))
@@ -14,6 +14,13 @@ Given('que quero que o request body seja o padrão de CRIAÇÃO de apolice', asy
 
 Given('que quero que o campo {string} dos dados da apólice tenha o valor {string}', async function (field, value) {
     this.requestBody.dadosDaApolice[field] = variableCreator.createVariableFromString(value);
+
+    var requestBody = this.requestBody;
+    this.attach("Request Body:\n" + JSON.stringify(requestBody, null, 2))
+})
+
+Given('que quero que a apólice de CRIAÇÃO tenha a quantidade {int} de itens', async function (amount) {
+    this.requestBody.itens = models.postBodyFactory.itemBodyFactory({numberOfObjects: amount})
 
     var requestBody = this.requestBody;
     this.attach("Request Body:\n" + JSON.stringify(requestBody, null, 2))

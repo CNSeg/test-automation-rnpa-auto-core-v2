@@ -8,7 +8,7 @@ module.exports.paginationParams = require("./query-params/pagination_params")
 // Request Body
 module.exports.reqEmpty = require("./request/empty_request_body");
 module.exports.reqAccessToken = require("./request/access_token_request_body");
-module.exports.entityBodyFactory = require("./request/entity_apolice_request_body_factory");
+module.exports.postBodyFactory = require("./request/POST_apolices/apolices_request_body_factory");
 module.exports.apoliceRequestBody = require("./request/POST_apolices/apolices_request_body");
 module.exports.endossoRequestBody = require("./request/PUT_apolices/index");
 

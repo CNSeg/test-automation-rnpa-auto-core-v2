@@ -234,6 +234,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "codigoOperacao" dos dados da apólice tenha o valor "<valor>"
         Quando realizar a chamada de CRIAÇÃO de apolice
+        Então o statusCode HTTP deve ser "<statusCode>"
         E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
         Exemplos:
             | casoDeTeste | valor        | statusCode | codigo  | mensagem                                                                                                                                                                                                                               | descricao                 |
@@ -679,6 +680,8 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         E que quero que o campo "numeroApoliceAnterior" dos dados da apólice tenha o valor "nulo"
         Quando realizar a chamada de CRIAÇÃO de apolice
         Então o statusCode HTTP deve ser "202"
+        E a resposta deve ser igual ao corpo da requisição
+
 
 
   # Regras de negócio das datas de emissão, início e fim da vigência 
@@ -695,8 +698,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
             | casoDeTeste | valorDataEmissao | valorDataInicio | valorDataFim | statusCode | codigo  | mensagem                                                     | descricao                                |
             | 1           | 2025-01-02       | 2025-01-01      | 2025-01-03   | 422        | 422.002 | Data de Emissão deve ser anterior ou igual à Data de Início. | Data de Emissão Maior que Data de Início |
             | 2           | 2025-01-02       | 2025-01-03      | 2025-01-01   | 422        | 422.001 | Data de Início deve ser anterior ou igual à Data de Fim.     | Data de Início Maior que Data de Fim     |
-            # | 3           | 2025-01-02       | 2025-01-03      | 2025-01-01   | 422        | 422.001 | Data de Emissão deve ser anterior ou igual à Data de Fim.    | Data de Emissão Maior que Data de Fim     |
-            # | 4           | Amanhã           | Amanhã          | Amanhã       | 422        | 422.001 | Data de Emissão deve ser anterior ou igual à Data corrente.  | Data de Início Maior que Data de Fim     |
+            | 3           | Amanhã           | Amanhã          | Amanhã       | 422        | 422.001 | Data de Emissão deve ser anterior ou igual à Data corrente.  | Data de Início Maior que Data de Fim     |
 
     @CT41-post-apolices
     Esquema do Cenário: CT41.<casoDeTeste> - Sucesso - Criação de apólice com cada tipo de operação | <descricao> 
@@ -704,6 +706,7 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
         E que quero que o campo "<valor>" dos dados da apólice tenha o valor "<valorDataEmissao>"
         Quando realizar a chamada de CRIAÇÃO de apolice
         Então o statusCode HTTP deve ser "<statusCode>"
+        E a resposta deve ser igual ao corpo da requisição
         Exemplos:
             | casoDeTeste | valor                 | statusCode | descricao                              |
             | 1           | NOVO_SEGURO           | 202        | Operação do tipo NOVO_SEGURO           |
@@ -718,13 +721,19 @@ Funcionalidade: Criação de apolices do RNPA Auto V2
 # ************************************************************** FROTA **************************************************************
 
     @CT42-post-apolices
-    Esquema do Cenário: CT42 - Sucesso - Cadastro de apólice de frota
+    Cenário: CT42 - Sucesso - Cadastro de apólice de frota
         Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
         E que quero que o campo "codigoSegmento" dos dados da apólice tenha o valor "FROTA"
+        E que quero que a apólice de CRIAÇÃO tenha a quantidade 2 de itens 
         Quando realizar a chamada de CRIAÇÃO de apolice
-        Então o statusCode HTTP deve ser "<statusCode>"
-        E a resposta contém um objeto com o código "<codigo>" e com a mensagem "<mensagem>"
-        Exemplos:
-            | casoDeTeste | valor        | statusCode | codigo  | mensagem             | descricao         |
-            | 1           | objeto vazio | 400        | 400.000 | Requisição inválida. | Como objeto vazio |
-            | 2           | array vazio  | 400        | 400.000 | Requisição inválida. | Como array vazio  |
+        E o statusCode HTTP deve ser "202"
+        E a resposta deve ser igual ao corpo da requisição
+
+    @CT43-post-apolices
+    Cenário: CT43 - Falha - Cadastro de apólice de frota com 1 único item
+        Dado que quero que o request body seja o padrão de CRIAÇÃO de apolice
+        E que quero que o campo "codigoSegmento" dos dados da apólice tenha o valor "FROTA"
+        E que quero que a apólice de CRIAÇÃO tenha a quantidade 1 de itens 
+        Quando realizar a chamada de CRIAÇÃO de apolice
+        E o statusCode HTTP deve ser "422"
+        E a resposta contém um objeto com o código "422.004" e com a mensagem "Para Segmento Frota, o número de itens da apólice deve maior que 1."

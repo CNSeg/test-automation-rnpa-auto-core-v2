@@ -14,4 +14,4 @@ const endossoComItemVazio = () => ({
     }]
   });
   
-  module.exports = endossoAlteracaoTecnica;
+  module.exports = endossoComItemVazio;

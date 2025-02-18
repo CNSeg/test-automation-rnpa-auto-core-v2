@@ -1,3 +1,6 @@
+const faker = require("faker");
+const dateParser = require("../../../support/date-parser");
+
 const apoliceIndividual = () => ({
   "dadosDaApolice": {
     "codigoSusep": "1234",
@@ -39,4 +42,22 @@ const apoliceIndividual = () => ({
   ]
 });
 
-module.exports = apoliceIndividual;
+const item = () => ({
+  "numeroItem": faker.datatype.number({ min: 1, max: 100 }),
+  "modeloVeiculo": faker.vehicle.vehicle(),
+  "codigoFipe": "12345678",
+  "anoFabricacao": 2024,
+  "anoModelo": 2025,
+  "veiculoZeroKm": true,
+  "placaVeiculo": "AAA1234",
+  "chassiVeiculo": "9BWZZZ377VT004251",
+  "codigoCategoria": "C123",
+  "nomeCategoria": "Compacto",
+  "dataEmissao": "2025-01-01",
+  "dataInicioVigencia": "2025-01-02",
+  "dataFimVigencia": "2026-01-01",
+  "statusItem": true
+});
+
+
+module.exports = {apoliceIndividual, item};
