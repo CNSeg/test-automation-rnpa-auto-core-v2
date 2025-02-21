@@ -1,11 +1,11 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+const { Given, When } = require("@cucumber/cucumber");
 const { expect } = require("chai");
 const models = require("../../../../models");
 const services = require("../../../../services");
 const variableCreator = require("../../../../support/create-variable")
 
 
-Given('que quero que o request body seja o padrão de CRIAÇÃO de apolice', async function(){
+Given('que quero que o request body seja o padrão de CRIAÇÃO de apólice', async function(){
     this.requestBody = models.apoliceRequestBody.apoliceIndividual();
 
     var requestBody = this.requestBody;
@@ -33,7 +33,7 @@ Given('que quero que o campo {string} dos dados do veículo tenha o valor {strin
     this.attach("Request Body:\n" + JSON.stringify(requestBody, null, 2))
 })
 
-When('realizar a chamada de CRIAÇÃO de apolice', async function(){
+When('realizar a chamada de CRIAÇÃO de apólice', async function(){
     this.response = await services
         .rnpaAutoV2Service
         .apolices
