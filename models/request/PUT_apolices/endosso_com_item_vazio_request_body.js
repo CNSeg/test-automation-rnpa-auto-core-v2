@@ -9,9 +9,10 @@ const endossoComItemVazio = () => ({
     "estadoSegurado": "SP",
     "cepPernoite": "1234567",
     "idTipoEndosso": 4,
+    "segmento": "INDIVIDUAL",
     "item": [{
       
     }]
   });
   
-  module.exports = endossoComItemVazio;
+module.exports = endossoComItemVazio;
